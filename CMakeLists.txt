@@ -57,9 +57,6 @@ add_message_files(
   gt_control.msg
   Lift_control.msg
   Lift_state.msg
-  gps_filtered.msg
-  agrobot_cmd.msg
-
 #   Message1.msg
 #   Message2.msg
 )
