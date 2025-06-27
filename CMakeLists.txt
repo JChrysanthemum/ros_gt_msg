@@ -51,10 +51,10 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate messages in the 'msg' folder
 add_message_files(
   FILES
-  # gt_motion.msg
-  gt_motion.msg
-  # gt_control.msg
-  gt_control.msg
+  # GT_motion.msg
+  GT_motion.msg
+  # GT_control.msg
+  GT_control.msg
   Lift_control.msg
   Lift_state.msg
 #   Message1.msg
