@@ -89,9 +89,9 @@ void cmd_velCallback1(const geometry_msgs::Twist &twist_aux)
     //setSpeed(twist_aux.linear.x,twist_aux.angular.z);
 }
 
-void cmd_velCallback(const ros_gt_msg::gt_control::ConstPtr &gt_control_msg)//速度控制回调
+void cmd_velCallback(const ros_gt_msg::GT_control::ConstPtr &GT_control_msg)//速度控制回调
 {
-	SendSpeedToHt(gt_control_msg->mode,gt_control_msg->x,gt_control_msg->y,gt_control_msg->stop);
+	SendSpeedToHt(GT_control_msg->mode,GT_control_msg->x,GT_control_msg->y,GT_control_msg->stop);
 }
 /**********************************END***********************************************/
 
@@ -139,8 +139,8 @@ int main(int argc, char **argv)
 	   ros_gt_msg::gt_steering_motor gt_steering_motor_msg;
 	   ros_gt_msg::gt_system  gt_system_msg;
 	   */
-	ros_gt_msg::gt_control gt_control_msg;
-	ros_gt_msg::gt_motion gt_motion_msg;
+	ros_gt_msg::GT_control GT_control_msg;
+	ros_gt_msg::GT_motion gt_motion_msg;
 	ros_gt_msg::Lift_state  lift_msg;
 	ros_gt_msg::Lift_control lift_control_msg;
 	printf(">>this is gt_hello !\r\n");//指示程序已运行
@@ -192,11 +192,11 @@ int main(int argc, char **argv)
 
 	ros::init(argc, argv, "publish_gt_msg");
 	ros::NodeHandle n;
-	ros::Subscriber gt_control_sub = n.subscribe<ros_gt_msg::gt_control>("/GT_Control", 100, cmd_velCallback);//速度回调
+	ros::Subscriber GT_control_sub = n.subscribe<ros_gt_msg::GT_control>("/GT_Control", 100, cmd_velCallback);//速度回调
 	ros::Subscriber lift_control_sub = n.subscribe<ros_gt_msg::Lift_control>("/Lift_Control", 100, cmd_LiftCallback);//升降台速度回调
 	ros::Subscriber sub = n.subscribe("/cmd_vel",100,cmd_velCallback1); 
 
-	ros::Publisher gt_motion_pub      = n.advertise<ros_gt_msg::gt_motion>("/GT_Motion", 100);//运动状态消息发布
+	ros::Publisher gt_motion_pub      = n.advertise<ros_gt_msg::GT_motion>("/GT_Motion", 100);//运动状态消息发布
 	ros::Publisher lift_motion_pub      = n.advertise<ros_gt_msg::Lift_state>("/Lift_Motion", 100);//运动状态消息发布
 
 	ros::Rate loop_rate(100);
