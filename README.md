@@ -13,6 +13,13 @@ Formated and commented by @JChrysanthemum
 
 ------
 
+Topic | Message | Comment
+-----|-----|-----
+/GT_Control | [GT_control.msg](msg/GT_control.msg) | Control movement by wheel speed or linear/anguar speed.
+/Lift_Control | [Lift_control.msg](msg/Lift_control.msg)  | Move to loc or move with speed
+/GT_Motion |  [GT_motion.msg](msg/GT_motion.msg) | Driver or register details, only for hardware debugging.
+/Lift_Motion |  [Lift_state.msg](msg/Lift_state.msg) | Driver or register details, only for hardware debugging.
+
 # FAQ
 *What can this package do*
 : Move GT-02 with two control mode and manipulate the platform
